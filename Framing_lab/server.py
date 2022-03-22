@@ -43,7 +43,6 @@ while True:
             conn.shutdown(socket.SHUT_WR)
             sys.exit(0)
 
-
 # import socket
 # from _thread import *
 

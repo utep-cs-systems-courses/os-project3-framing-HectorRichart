@@ -39,6 +39,6 @@ while True:
                     raise RuntimeError("Socket connection broken.")
                 totalsent += sent
                 unarchive("received file from client" + str(addr[1]) + ".txt", encoded_file)
-            time.sleep(0.25);       # delay 1/4s
+            time.sleep(0.25)       # delay 1/4s
             conn.shutdown(socket.SHUT_WR)
             sys.exit(0)

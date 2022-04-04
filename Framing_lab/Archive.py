@@ -6,7 +6,6 @@ def archive(file_name):
         byteArray += file.read()  #appending the file to the byte array and method returns that
         return byteArray
 
-        
 #restores the encoded file (byte array file)
 def unarchive(file_name, encoded_data):
         with open(file_name, "wb") as file: #opening in read bytes mode, automatically decodes data
@@ -16,3 +15,6 @@ def unarchive(file_name, encoded_data):
 encoded = archive("sockets.txt")
 print(encoded)
 
+
+
+#TODO:

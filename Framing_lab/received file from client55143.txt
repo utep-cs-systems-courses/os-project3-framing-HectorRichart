@@ -1,7 +1,0 @@
-Sockets have a long history. Their use originated with ARPANET in 1971 and later became an API in the Berkeley Software Distribution (BSD) operating system released in 1983 called Berkeley sockets.
-
-When the Internet took off in the 1990s with the World Wide Web, so did network programming. Web servers and browsers weren’t the only applications taking advantage of newly connected networks and using sockets. Client-server applications of all types and sizes came into widespread use.
-
-Today, although the underlying protocols used by the socket API have evolved over the years, and new ones have developed, the low-level API has remained the same.
-
-The most common type of socket applications are client-server applications, where one side acts as the server and waits for connections from clients. This is the type of application that you’ll be creating in this tutorial. More specifically, you’ll focus on the socket API for Internet sockets, sometimes called Berkeley or BSD sockets. There are also Unix domain sockets, which can only be used to communicate between processes on the same host.

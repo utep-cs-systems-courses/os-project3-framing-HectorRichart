@@ -3,7 +3,6 @@ import socket
 from _thread import *
 from Archive import *
 
-
 #Creates the socket
 ServerSocket = socket.socket()
 #Create the addresses

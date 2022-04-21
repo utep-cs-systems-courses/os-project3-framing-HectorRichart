@@ -7,7 +7,7 @@ from Archive import *
 ServerSocket = socket.socket()
 #Create the addresses
 host = '127.0.0.1'
-port = 1233
+port = 50001
 #set to listen from income connections
 ThreadCount = 0
 try:
@@ -15,14 +15,15 @@ try:
 except socket.error as e:
     print(str(e))
 
-print('Waiting for a Connection..')
+print('Waiting for a Connection (Server side)..')
+
 ServerSocket.listen(5)
 
 #Function to send the info to the client
 def threaded_client(connection):
     #open the file
-    file = open("sockets.txt")
-
+    filename = input("Enter the file name: ")
+    file = open(filename)
     connection.send(str.encode('Welcome to the Server'))
     #read the file
     buffer = file.read()
@@ -30,7 +31,6 @@ def threaded_client(connection):
     while len(buffer) > 0:
         connection.send(buffer[:1024].encode())
         buffer = buffer[1024:]
-    #close the conncetion
     connection.close()
 
 #Creates new threads for every connection
@@ -40,4 +40,5 @@ while True:
     start_new_thread(threaded_client, (Client, ))
     ThreadCount += 1
     print('Thread Number: ' + str(ThreadCount))
+    
 ServerSocket.close()

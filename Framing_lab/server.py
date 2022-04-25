@@ -2,6 +2,7 @@
 import socket
 from _thread import *
 from Archive import *
+import os
 
 #Creates the socket
 ServerSocket = socket.socket()
@@ -24,6 +25,14 @@ def threaded_client(connection):
     #open the file
     filename = input("Enter the file name: ")
     file = open(filename)
+    file_list = []
+    for elem in file_list:
+        filename = os.path.basename(elem)
+        if filename not in file_list:
+            file_list = filename
+        else:
+            print("File already exists...")
+            continue
     connection.send(str.encode('Welcome to the Server'))
     #read the file
     buffer = file.read()
@@ -32,7 +41,7 @@ def threaded_client(connection):
         connection.send(buffer[:1024].encode())
         buffer = buffer[1024:]
     connection.close()
-
+    
 #Creates new threads for every connection
 while True:
     Client, address = ServerSocket.accept()

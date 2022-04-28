@@ -19,7 +19,7 @@ except socket.error as e:
 Response = ClientSocket.recv(1024)
 #Create the file
 clientid = str(ClientSocket.getsockname()[1])
-text_file = open("received file by server[" + clientid +"].txt","a")
+text_file = open("Received File, Client id -> [" + clientid +"].txt","a")
 #Write the file as long as you are receiving it from server
 while len(Response) > 0:
     Response = ClientSocket.recv(1024)
